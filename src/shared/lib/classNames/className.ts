@@ -1,8 +1,8 @@
 type Mode = Record<string, string | boolean>
-export function className(cls: string, mode: Mode, classes: string[]) {
+export function classNames(cls: string, mode: Mode = {}, additional: (string|undefined)[] = []): string {
     return [
         cls,
-        ...classes,
+        ...additional.filter(Boolean),
         ...Object.keys(mode)
             .filter(key => mode[key]),
     ].join(' ');
