@@ -1,17 +1,17 @@
-import {classNames} from "shared/lib";
-import {useTheme} from "./provider/ThemeProvider";
-import {Theme} from "./provider/ThemeProvider/lib/ThemeContext";
-import {AppRouter} from "./provider/router";
-import {Navbar} from "widgets/Navbar";
-import { Sidebar } from "widgets/Sidebar";
-import { Suspense } from "react";
+import { classNames } from 'shared/lib';
+import { Navbar } from 'widgets/Navbar';
+import { Sidebar } from 'widgets/Sidebar';
+import { Suspense } from 'react';
+import { useTheme } from './provider/ThemeProvider';
+import { Theme } from './provider/ThemeProvider/lib/ThemeContext';
+import { AppRouter } from './provider/router';
 
-const App = () => {
-    const {theme} = useTheme();
+function App() {
+    const { theme } = useTheme();
 
     const newTheme = theme || Theme.LIGHT;
     return (
-        <div className={classNames('app', {hovered: true}, [newTheme])}>
+        <div className={classNames('app', { hovered: true }, [newTheme])}>
             <Suspense fallback="loading...">
                 <Navbar />
                 <div className="content-page">
@@ -21,6 +21,6 @@ const App = () => {
             </Suspense>
         </div>
     );
-};
+}
 
 export default App;
