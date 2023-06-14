@@ -15,14 +15,22 @@
         "paths": {
             "*": ["./src/*"]
         },
-
-        "include": [
-            "./setupTest.ts"
-        ],
     },
+
     "ts-node": {
         "compilerOptions": {
-            "module": "CommonJS"
-        }
-    }
+            "module": "CommonJS",
+            "jsx": "react-jsx"
+        },
+    },
+
+    "include": [
+        "./config/jest/setupTest.ts",
+        "**/**/*.ts",
+        "**/**/*.tsx"
+    ],
+
+    "exclude": [
+        "node_modules"
+    ]
 }

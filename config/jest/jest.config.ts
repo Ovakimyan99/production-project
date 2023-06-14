@@ -3,6 +3,8 @@
  * https://jestjs.io/docs/configuration
  */
 
+import path from 'path';
+
 export default {
     clearMocks: true,
 
@@ -17,7 +19,12 @@ export default {
         'src',
     ],
 
-    setupFilesAfterEnv: ['<rootDir>/config/jest/setupTest.js'],
+    setupFilesAfterEnv: ['<rootDir>/config/jest/setupTest.ts'],
+
+    moduleNameMapper: {
+        '\\.(s?css)$': 'identity-obj-proxy',
+        '\\.svg$': path.resolve(__dirname, 'jestEmptyComponent.tsx'),
+    },
 
     moduleFileExtensions: [
         'js',
