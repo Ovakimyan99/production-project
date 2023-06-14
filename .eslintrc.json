@@ -12,7 +12,14 @@
         "plugin:@typescript-eslint/recommended",
         "plugin:i18next/recommended"
     ],
-    "overrides": [],
+    "overrides": [
+        {
+            "files": ["**/src/**/*.test.{ts,tsx}"],
+            "rules": {
+                "i18next/no-literal-string": "off"
+            }
+        }
+    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -42,7 +49,8 @@
         "no-shadow": "off",
         "no-underscore-dangle": "warn",
         "i18next/no-literal-string": ["error", {
-            "markupOnly": true
+            "markupOnly": true,
+            "ignoreAllAttribute": ["data-testid"]
         }],
         "max-len": ["error", {
             "ignoreComments": true,
@@ -59,5 +67,5 @@
     },
     "globals": {
         "__IS_DEV__": true
-    }
+    },
 }
