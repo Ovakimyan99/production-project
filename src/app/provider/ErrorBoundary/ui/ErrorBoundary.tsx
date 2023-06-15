@@ -6,7 +6,7 @@ interface ErrorBoundaryProps {
 }
 
 interface ErrorBoundaryState {
-    hasError: ErrorInfo;
+    hasError: boolean;
 }
 
 export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoundaryState> {
@@ -20,7 +20,8 @@ export class ErrorBoundary extends React.Component<ErrorBoundaryProps, ErrorBoun
         return { hasError: true };
     }
 
-    componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
+    componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+        // eslint-disable-next-line no-console
         console.log(error, errorInfo);
     }
 

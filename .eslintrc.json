@@ -10,11 +10,14 @@
         "airbnb/hooks",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended",
-        "plugin:i18next/recommended"
+        "plugin:i18next/recommended",
+        "plugin:storybook/recommended"
     ],
     "overrides": [
         {
-            "files": ["**/src/**/*.test.{ts,tsx}"],
+            "files": [
+                "**/src/**/*.test.{ts,tsx}"
+            ],
             "rules": {
                 "i18next/no-literal-string": "off"
             }
@@ -24,7 +27,9 @@
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module",
-        "project": ["tsconfig.json"]
+        "project": [
+            "tsconfig.json"
+        ]
     },
     "plugins": [
         "react",
@@ -32,40 +37,71 @@
         "i18next"
     ],
     "rules": {
-        "indent": [2, 4],
+        "indent": [
+            2,
+            4
+        ],
         "no-unused-vars": "warn",
         "import/no-unresolved": "off",
         "import/extensions": "off",
         "import/prefer-default-export": "off",
         "@typescript-eslint/semi": "off",
         "react/requre-default-props": "off",
-        "react/jsx-indent": [2, 4],
-        "react/jsx-indent-props": [2, 4],
+        "react/jsx-indent": [
+            2,
+            4
+        ],
+        "react/jsx-indent-props": [
+            2,
+            4
+        ],
         "react/react-in-jsx-scope": "off",
-        "react/jsx-filename-extension": [2, {"extensions": [".js", ".jsx", ".tsx", ".ts"]}],
+        "react/jsx-filename-extension": [
+            2,
+            {
+                "extensions": [
+                    ".js",
+                    ".jsx",
+                    ".tsx",
+                    ".ts"
+                ]
+            }
+        ],
         "react/jsx-props-no-spreading": "warn",
         "react/function-component-definition": "off",
         "react/require-default-props": "off",
         "no-shadow": "off",
         "no-underscore-dangle": "warn",
-        "i18next/no-literal-string": ["error", {
-            "markupOnly": true,
-            "ignoreAllAttribute": ["data-testid"]
-        }],
-        "max-len": ["error", {
-            "ignoreComments": true,
-            "code": 100
-        }],
-        "linebreak-style": ["error", "unix"],
+        "i18next/no-literal-string": [
+            "error",
+            {
+                "markupOnly": true,
+                "ignoreAllAttribute": [
+                    "data-testid",
+                    "to"
+                ]
+            }
+        ],
+        "max-len": [
+            "error",
+            {
+                "ignoreComments": true,
+                "code": 100
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
         "import/no-extraneous-dependencies": [
             "warn",
             {
-              "devDependencies": true,
-              "optionalDependencies": false
+                "devDependencies": true,
+                "optionalDependencies": false
             }
         ]
     },
     "globals": {
         "__IS_DEV__": true
-    },
+    }
 }
