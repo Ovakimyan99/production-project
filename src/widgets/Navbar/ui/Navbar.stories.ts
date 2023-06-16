@@ -1,7 +1,7 @@
-import { Navbar } from './Navbar';
 import type { Meta, StoryObj } from '@storybook/react';
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
 import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
+import { Navbar } from './Navbar';
 
 const meta = {
     title: 'Widget/Navbar',
@@ -21,6 +21,6 @@ export const Dark: Story = {
     args: {
     },
     decorators: [
-        ThemeDecorator(Theme.DARK)
-    ]
+        ThemeDecorator(Theme.DARK),
+    ],
 };

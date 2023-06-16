@@ -19,15 +19,15 @@ function buildPlugins({ paths, isDev, analyze }: BuildOptions): webpack.WebpackP
         new webpack.DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
-        new BundleAnalyzerPlugin({
-            openAnalyzer: false,
-            analyzerMode: analyze ? 'server' : 'disabled',
-        }),
     ];
 
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin());
         plugins.push(new webpack.HotModuleReplacementPlugin());
+        plugins.push(new BundleAnalyzerPlugin({
+            openAnalyzer: false,
+            analyzerMode: analyze ? 'server' : 'disabled',
+        }));
     }
 
     return plugins;

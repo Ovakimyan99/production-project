@@ -1,7 +1,7 @@
 import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator';
-import { PageLoader } from './PageLoader';
 import type { Meta, StoryObj } from '@storybook/react';
 import { Theme } from 'app/provider/ThemeProvider/lib/ThemeContext';
+import { PageLoader } from './PageLoader';
 
 const meta = {
     title: 'Widgets/PageLoader',
@@ -20,6 +20,6 @@ export const Light: Story = {
 export const Dark: Story = {
     args: {},
     decorators: [
-        ThemeDecorator(Theme.DARK)
-    ]
+        ThemeDecorator(Theme.DARK),
+    ],
 };
