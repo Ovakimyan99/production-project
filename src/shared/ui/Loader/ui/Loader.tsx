@@ -7,17 +7,17 @@ interface PageLoaderProps {
 
 export const Loader = ({ className }: PageLoaderProps) => (
     <div className={classNames('ldio-s3esnyv8lg', {}, [className])}>
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
-        <div />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
+        <div className="ldio-s3esnyv8lg__div" />
     </div>
 );
