@@ -24,7 +24,7 @@
   - [x] loki
 - [x] CssModules
 - [x] i18n - интернационализация
-- [ ] CI pipeline
+- [x] CI pipeline
 - [x] Темы (Темная, светлая)
   
 ## Скрипты
