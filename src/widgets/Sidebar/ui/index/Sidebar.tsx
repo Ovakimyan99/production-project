@@ -1,13 +1,16 @@
 /* eslint-disable i18next/no-literal-string */
-import { classNames } from 'shared/lib';
+import { BrowserRouter } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+
+import { classNames } from 'shared/lib';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwicher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/AppButton/Button';
 import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { useTranslation } from 'react-i18next';
 import { RoutePath } from 'shared/config/routeConfig/routeConfig';
 
+// Assets
 import PageMain from 'shared/assets/icons/main.svg';
 import PageAbout from 'shared/assets/icons/about.svg';
 import cls from './Sidebar.module.scss';
@@ -40,31 +43,35 @@ export const Sidebar = ({ className }: SidebarProps) => {
                 size={ButtonSize.L}
                 square
             >
-                { collapsed ? '>' : '<' }
+                <span>
+                    { collapsed ? '>' : '<' }
+                </span>
             </Button>
 
             {/* Navigation */}
             <div className={cls.navigation}>
-                <AppLink
-                    to={RoutePath.main}
-                    theme={AppLinkTheme.SECONDARY}
-                    className={cls['navigation-link']}
-                >
-                    <PageMain className={cls.icon} />
-                    <span className={classNames(cls.linkText, { [cls.collapsed]: collapsed })}>
-                        {tMain('Название ссылки шапки')}
-                    </span>
-                </AppLink>
-                <AppLink
-                    to={RoutePath.about}
-                    theme={AppLinkTheme.SECONDARY}
-                    className={cls['navigation-link']}
-                >
-                    <PageAbout className={cls.icon} />
-                    <span className={classNames(cls.linkText, { [cls.collapsed]: collapsed })}>
-                        {tAbout('Название ссылки шапки')}
-                    </span>
-                </AppLink>
+                <BrowserRouter>
+                    <AppLink
+                        to={RoutePath.main}
+                        theme={AppLinkTheme.SECONDARY}
+                        className={cls['navigation-link']}
+                    >
+                        <PageMain className={cls.icon} />
+                        <span className={classNames(cls.linkText, { [cls.collapsed]: collapsed })}>
+                            {tMain('Название ссылки шапки')}
+                        </span>
+                    </AppLink>
+                    <AppLink
+                        to={RoutePath.about}
+                        theme={AppLinkTheme.SECONDARY}
+                        className={cls['navigation-link']}
+                    >
+                        <PageAbout className={cls.icon} />
+                        <span className={classNames(cls.linkText, { [cls.collapsed]: collapsed })}>
+                            {tAbout('Название ссылки шапки')}
+                        </span>
+                    </AppLink>
+                </BrowserRouter>
             </div>
 
             {/* Buttons */}
