@@ -4,6 +4,12 @@ import { useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwicher';
 import { Button, ButtonSize, ButtonTheme } from 'shared/ui/AppButton/Button';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
+import { useTranslation } from 'react-i18next';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+
+import PageMain from 'shared/assets/icons/main.svg';
+import PageAbout from 'shared/assets/icons/about.svg';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -17,11 +23,15 @@ export const Sidebar = ({ className }: SidebarProps) => {
         setCollapsed((prev) => !prev);
     };
 
+    const { t: tAbout } = useTranslation('about');
+    const { t: tMain } = useTranslation('main');
+
     return (
         <div
             data-testid="sidebar"
             className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [className])}
         >
+            {/* open / close sidebar */}
             <Button
                 data-testid="sidebar-toggle"
                 onClick={onToggle}
@@ -32,9 +42,38 @@ export const Sidebar = ({ className }: SidebarProps) => {
             >
                 { collapsed ? '>' : '<' }
             </Button>
-            <div className={cls.switchers}>
+
+            {/* Navigation */}
+            <div className={cls.navigation}>
+                <AppLink
+                    to={RoutePath.main}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls['navigation-link']}
+                >
+                    <PageMain className={cls.icon} />
+                    <span className={classNames(cls.linkText, { [cls.collapsed]: collapsed })}>
+                        {tMain('Название ссылки шапки')}
+                    </span>
+                </AppLink>
+                <AppLink
+                    to={RoutePath.about}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls['navigation-link']}
+                >
+                    <PageAbout className={cls.icon} />
+                    <span className={classNames(cls.linkText, { [cls.collapsed]: collapsed })}>
+                        {tAbout('Название ссылки шапки')}
+                    </span>
+                </AppLink>
+            </div>
+
+            {/* Buttons */}
+            <div className={classNames(cls.switchers, { [cls.collapsed]: collapsed })}>
                 <ThemeSwitcher />
-                <LangSwitcher className={cls.lang} />
+                <LangSwitcher
+                    short={collapsed}
+                    className={classNames(cls.lang, { [cls.collapsed]: collapsed })}
+                />
             </div>
         </div>
     );

@@ -20,7 +20,7 @@
 - [x] Babel
 - [x] Тестовая среда
   - [x] jest
-  - [x] storybook
+  - [x] storybook 7
   - [x] loki
 - [x] CssModules
 - [x] i18n - интернационализация
