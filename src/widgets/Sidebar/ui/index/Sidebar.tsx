@@ -50,28 +50,26 @@ export const Sidebar = ({ className }: SidebarProps) => {
 
             {/* Navigation */}
             <div className={cls.navigation}>
-                <BrowserRouter>
-                    <AppLink
-                        to={RoutePath.main}
-                        theme={AppLinkTheme.SECONDARY}
-                        className={cls['navigation-link']}
-                    >
-                        <PageMain className={cls.icon} />
-                        <span className={classNames(cls.linkText, { [cls.collapsed]: collapsed })}>
-                            {tMain('Название ссылки шапки')}
-                        </span>
-                    </AppLink>
-                    <AppLink
-                        to={RoutePath.about}
-                        theme={AppLinkTheme.SECONDARY}
-                        className={cls['navigation-link']}
-                    >
-                        <PageAbout className={cls.icon} />
-                        <span className={classNames(cls.linkText, { [cls.collapsed]: collapsed })}>
-                            {tAbout('Название ссылки шапки')}
-                        </span>
-                    </AppLink>
-                </BrowserRouter>
+                <AppLink
+                    to={RoutePath.main}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls['navigation-link']}
+                >
+                    <PageMain className={cls.icon} />
+                    <span className={classNames(cls.linkText, { [cls.collapsed]: collapsed })}>
+                        {tMain('Название ссылки шапки')}
+                    </span>
+                </AppLink>
+                <AppLink
+                    to={RoutePath.about}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls['navigation-link']}
+                >
+                    <PageAbout className={cls.icon} />
+                    <span className={classNames(cls.linkText, { [cls.collapsed]: collapsed })}>
+                        {tAbout('Название ссылки шапки')}
+                    </span>
+                </AppLink>
             </div>
 
             {/* Buttons */}
